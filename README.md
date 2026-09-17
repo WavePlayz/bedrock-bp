@@ -1,0 +1,1 @@
+# bedrock-script-api-template-ts

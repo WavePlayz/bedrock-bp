@@ -1,15 +1,21 @@
 {
+	"name": "my-pack",
+	"private": true,
 	"scripts": {
+		"init": "node setup-manifest.js",
+		"postinstall": "node -e \"const m=require('./manifest.json'); if(m.header.uuid==='RANDOM'){require('child_process').execSync('node setup-manifest.js',{stdio:'inherit'})}\"",
 		"build": "node esbuild.config.js",
-		"watch": "node esbuild.config.js"
-	},
-	"dependencies": {
-		"@minecraft/server": "^2.10.0",
-		"@minecraft/server-ui": "^2.2.0",
-		"@minecraft/debug-utilities": "^1.0.0-beta.1.26.51-stable"
+		"build:release": "cross-env NODE_ENV=production node esbuild.config.js",
+		"watch": "node esbuild.config.js watch",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@bedrock-apis/env-types": "^1.1.0-rc",
-		"esbuild": "^0.28.2"
+		"@minecraft/debug-utilities": "^1.0.0-beta.1.26.51-stable",
+		"@minecraft/server": "^2.10.0",
+		"@minecraft/server-ui": "^2.2.0",
+		"cross-env": "^7.0.3",
+		"esbuild": "^0.28.2",
+		"typescript": "^5.6.0"
 	}
 }

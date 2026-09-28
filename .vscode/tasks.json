@@ -2,13 +2,50 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "TypeScript Watch",
-			"type": "npm",
-			"script": "watch",
-			"isBackground": true,
+			"label": "dev",
+			"dependsOn": ["tsc-watch", "esbuild-watch"],
+			"dependsOrder": "parallel",
 			"problemMatcher": [],
-			"runOptions": {
-				"runOn": "folderOpen"
+			"runOptions": { "runOn": "folderOpen" }
+		},
+		{
+			"label": "tsc-watch",
+			"type": "shell",
+			"command": "npx tsc --noEmit --watch --preserveWatchOutput",
+			"isBackground": true,
+			"problemMatcher": "$tsc-watch",
+			"presentation": {
+				"reveal": "never",
+				"panel": "shared",
+				"showReuseMessage": false
+			}
+		},
+		{
+			"label": "esbuild-watch",
+			"type": "shell",
+			"command": "node esbuild.config.js watch",
+			"isBackground": true,
+			"problemMatcher": {
+				"owner": "esbuild",
+				"fileLocation": ["relative", "${workspaceFolder}"],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": ".*build started.*",
+					"endsPattern": ".*build finished.*"
+				}
+			},
+			"presentation": {
+				"reveal": "never",
+				"panel": "shared",
+				"showReuseMessage": false
 			}
 		}
 	]

@@ -1,34 +1,24 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "Example Pack 1",
+		"name": "My Pack",
 		"description": "",
-		"uuid": "057044c4-d89d-4d85-8b05-3a9c88b7806d",
+		"uuid": "RANDOM",
 		"version": "0.1.0",
-		"min_engine_version": [1, 26, 0]
+		"min_engine_version": [1, 20, 0]
 	},
 	"modules": [
 		{
 			"type": "script",
 			"language": "javascript",
 			"entry": "scripts/main.js",
-			"uuid": "6f211d1d-da89-4b24-b728-c56de4dc2ead",
+			"uuid": "RANDOM",
 			"version": "0.1.0"
 		}
 	],
-
 	"dependencies": [
-		{
-			"module_name": "@minecraft/server",
-			"version": "2.10.0"
-		},
-		{
-			"module_name": "@minecraft/server-ui",
-			"version": "2.2.0"
-		},
-		{
-			"module_name": "@minecraft/debug-utilities",
-			"version": "beta"
-		}
+		{ "module_name": "@minecraft/server", "version": "2.10.0" },
+		{ "module_name": "@minecraft/server-ui", "version": "2.2.0" },
+		{ "module_name": "@minecraft/debug-utilities", "version": "beta" }
 	]
 }

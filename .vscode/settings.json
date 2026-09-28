@@ -1,0 +1,11 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"files.eol": "\n",
+	"files.watcherExclude": {
+		"**/dist/**": true,
+		"**/scripts/**": true,
+		"**/node_modules/**": true
+	}
+}

@@ -1,10 +1,6 @@
-import { GameMode, Player, system, world } from "@minecraft/server"
-import { CustomForm } from "@minecraft/server-ui"
+import { world, system } from "@minecraft/server"
 
-world.beforeEvents.itemUse.subscribe((event) => {
-	const { itemStack, source } = event
-
-	if (!(source instanceof Player)) return
-
-	source.sendMessage("Hello World")
+world.afterEvents.playerSpawn.subscribe((ev) => {
+	if (!ev.initialSpawn) return
+	ev.player.sendMessage("§aPack loaded.")
 })
